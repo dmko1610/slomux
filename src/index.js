@@ -2,13 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Provider from './slomux/Provider'
 import createStore from './slomux/createStore'
-import reducer from './todo/reducer'
-import ToDo from './todo/Todo'
+import reducer from './store/reducer'
 import * as serviceWorker from './serviceWorker'
+import { Timer } from './Timer'
+
+const initialState = {
+    interval: 1
+}
 
 ReactDOM.render(
-  <Provider store={createStore(reducer, [])}>
-    <ToDo title="Список задач" />
+  <Provider store={createStore(reducer, initialState)}>
+    <Timer/>
   </Provider>,
   document.getElementById('root')
 )
